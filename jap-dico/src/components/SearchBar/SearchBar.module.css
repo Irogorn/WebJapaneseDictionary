@@ -1,0 +1,55 @@
+.field {
+    border: none;
+    outline: none;
+    flex: 15 0;
+    height: 40px
+}
+
+.field::placeholder{
+    font-size: medium;
+}
+
+.button {
+    border: none;
+    font-size: medium;
+    flex: 1 0;
+}
+
+.button:active {
+    background-color: pink;
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: medium;
+    border: none;
+    flex: 1;
+}
+
+.searchIcon {
+    border: none;
+    font-size: medium;
+    flex: 2 0;
+}
+
+.searchIcon:active {
+    background-color: pink;
+}
+
+.field__button {
+    display: flex;
+    border: 2px solid pink;
+    flex: 1;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.clear{
+    border: none;
+    font-size: large;
+    background-color: transparent;
+    color: pink;
+    flex: 0 0;
+}

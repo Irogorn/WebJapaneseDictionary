@@ -1,0 +1,15 @@
+.block{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px;
+}
+
+.list{
+    font-size: 20px;
+}
+
+.line{
+    text-decoration-line: underline;
+    text-decoration-color: pink;
+}

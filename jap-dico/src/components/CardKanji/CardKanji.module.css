@@ -1,0 +1,58 @@
+.card {
+    border-bottom: 1px solid rgb(216, 216, 216);
+    width: fit-content;
+    margin-top: 10px;
+    
+}
+
+.group_three {
+    margin-left: 15px;
+}
+
+.order {
+    display: flex;
+    margin-left: 15x;
+    justify-content: center;
+}
+
+.kanji {
+    font-size: 70px;
+}
+
+.jlpt_and_co {
+    margin-left: 10px;
+}
+
+.jlpt {
+    border: 2px solid rgb(13, 202, 13);
+    text-align: center;
+    padding: 2px;
+}
+
+.strokes {
+    border: 2px solid blue;
+    text-align: center;
+    padding: 2px;
+    margin-right: 2px;
+}
+
+.reading {
+    font-size: larger;
+    margin-left: 0px;
+}
+
+.kun {
+    color: #9752f7;
+    font-weight: bold;
+    background-color: whitesmoke;
+}
+
+.on {
+    color: #d26565;
+    font-weight: bold;
+    background-color: whitesmoke;
+}
+
+.meaning {
+    font-weight: bold;
+}

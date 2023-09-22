@@ -1,0 +1,17 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+SERVER/node_modules
+jap-dico/node_modules
+
+#files
+SERVER/*-lock.json
+jap-dico/*-lock.json
+
+
+# testing
+SERVER/coverage
+
+# production
+SERVER/build
+jap-dico/build

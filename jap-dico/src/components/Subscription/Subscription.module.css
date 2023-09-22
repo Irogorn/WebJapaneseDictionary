@@ -1,0 +1,77 @@
+.ilot{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.contour{
+    border: pink 2px solid;
+    border-radius: 15px;
+    margin: auto;
+    margin-top: 20px;
+    width: 600px;
+    height: 380px;
+    align-self: center;
+}
+
+.contourAdapt{
+    border: pink 2px solid;
+    border-radius: 15px;
+    margin: auto;
+    margin-top: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+    height: 380px;
+    align-self: center;
+}
+
+.line{
+    display: flex;
+    flex-direction: column;
+    width: 550px;
+    margin-top: 15px;
+}
+
+.lineAdapt{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin-top: 15px;
+}
+
+.label{
+    width: 200px;
+}
+
+.input{
+    width: 350px;
+    height: 25px;
+    border:2px solid black;
+    border-radius: 5px;
+}
+
+.groupButton{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+    margin-top: 25px;
+    width: 150%;
+}
+
+.button{
+    border: 2px solid pink;
+    background-color: white;
+    width: 100px;
+    height: 25px;
+}
+
+.button:active{
+    border: 2px solid rgb(152, 27, 255);
+    background-color: pink;
+}
+
+.error{
+    color:red;
+    font-weight: bold;
+}
