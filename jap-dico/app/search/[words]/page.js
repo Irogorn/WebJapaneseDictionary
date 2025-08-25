@@ -3,6 +3,14 @@ import styles from "./Definitions.module.css";
 import CardDetail from "../../../components/CardDetail.jsx";
 import CardKanji from "../../../components/CardKanji.jsx";
 
+export async function generateMetadata({ params }) {
+    const { words } = params;
+    return {
+        title: `Definition of ${words} - Jap Dico`,
+        description: `Find the definition, kanji, and conjugation for the Japanese word ${words}.`,
+    };
+}
+
 async function getDefinitions(words) {
     let patch = words.replaceAll("%%","%25%")
     const res = await fetch(`http://localhost:8080/search/${patch}`);
@@ -17,8 +25,27 @@ export default async function Definitions({ params }) {
     const { words } = params;
     const [definitions, kanjis] = await getDefinitions(words);
 
+    const generateJsonLd = () => {
+        return {
+            "@context": "https://schema.org",
+            "@type": "DefinedTermSet",
+            "name": `Definitions for ${words}`,
+            "description": `A set of definitions for the Japanese word ${words}.`,
+            "hasDefinedTerm": definitions.map(def => ({
+                "@type": "DefinedTerm",
+                "name": def.word.jp_kanji || def.word.jp_hiragana || def.word.jp_katakana,
+                "description": def.word.WordsFRs.map(fr => fr.french).join(', '),
+                "inDefinedTermSet": "Jap Dico"
+            }))
+        };
+    };
+
     return (
         <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(generateJsonLd()) }}
+            />
             {definitions.length === 0 || definitions === undefined ? (
                 <div className={styles.noFound}>
                     {`No results found for ${words}`}
