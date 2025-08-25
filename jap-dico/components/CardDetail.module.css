@@ -1,0 +1,126 @@
+.card {
+    border-bottom: 1px solid rgb(216, 216, 216);
+    margin-top: 10px;
+}
+
+.group {
+    display: flex;
+    padding-left: 15px;
+}
+
+.jpword {
+    font-size: 40px;
+    width: fit-content;
+}
+
+.jpatejiflex{
+    display: flex;
+    flex-direction: column;
+}
+
+.jpatejiup{
+    text-align: center;
+}
+
+.jpateji{
+    font-size: 40px;
+    width: fit-content;
+}
+
+.jpword:before {
+    content: attr(furigana);
+    font-size: 15px;
+    line-height: 1;
+    display: block;
+    text-align:center;
+    height: 20px;
+}
+
+.group_two {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    gap: 10px;
+}
+
+.types {
+    display: flex;
+    border: 3px solid red;
+    border-radius: 5px;
+    justify-content: center;
+    align-content: center;
+    padding-bottom: 2px;
+    margin-top: 0px;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: red;
+    font-weight: bold;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.form {
+    border: 2px solid #facc07;
+    border-radius: 5px;
+    text-decoration: none;
+    height: fit-content;
+    margin-top: 24px;
+    padding: 4px;
+    background-color: white;
+    margin: 0px;
+    width: 125px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-weight: bold;
+    align-self: center;
+}
+
+.form:hover {
+    background-color: whitesmoke;
+}
+
+.form:active {
+    background-color: #facc07;
+    border: 2px solid black;
+    color: whitesmoke;
+}
+
+.fr {
+    font-size: 25px;
+    width: fit-content;
+    margin-top: 25px;
+    margin-right: 10px;
+    margin-left: 5px;
+}
+
+.jp {
+    font-size: 25px;
+    width: fit-content;
+    margin-right: 10px;
+    margin-left: 5px;
+}
+
+.french{
+    font-size: 25px;
+    color:black;
+    padding: 5px;
+    text-align: center;
+}
+
+.explication{
+    font-size: 15px;
+    color:black;   
+    padding: 5px;
+    text-align: center;
+}
+
+.group_up{
+    margin: 10px;
+    border: 2px solid gray;
+    background-color: whitesmoke;
+}
+
+.text{
+    text-decoration: underline;
+}
