@@ -1,5 +1,6 @@
 import React, {useContext} from "react";
-import {NavLink} from "react-router-dom";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import SearchBar from "../SearchBar/SearchBar"
 import styles from "./NavBar.module.css"
 import { UserContext } from "../Context/Context";
@@ -8,6 +9,7 @@ import { useTranslation } from "react-i18next";
 
 export default function NavBar(){
     const { t } = useTranslation();
+    const router = useRouter();
 
     const {granted, setGranted, setUserName, setUserId,selected,setSelected} = useContext(UserContext)
 
@@ -26,33 +28,33 @@ export default function NavBar(){
         <>
             {
                 (isSmartPhoneMax600 && isSmartPhoneMin300) === false ?  <nav className={styles.nav}>
-                <NavLink to='/' onClick={()=>{setSelected(1)}}>
+                <Link href='/' onClick={()=>{setSelected(1)}}>
                     <img className={styles.image} src="\sakura.png" alt="sakura"/>
-                </NavLink>
-                <NavLink className={`${styles.button} ${selected === 1 && styles.active}`} to="/" onClick={()=>{setSelected(1)}}>{t('home')}</NavLink>
+                </Link>
+                <Link className={`${styles.button} ${router.pathname === "/" ? styles.active : ""}`} href="/" onClick={()=>{setSelected(1)}}>{t('home')}</Link>
                 <SearchBar/>
                 {
-                    granted === null ? <NavLink className={`${styles.button} ${selected === 2 && styles.active}`} to="/login" onClick={()=>{setSelected(2)}}>{t('login')}</NavLink>
-                    : <NavLink className={`${styles.button} ${selected === 2 && styles.active}`} to="/account" onClick={()=>{setSelected(2);}}>{t('account')}</NavLink>
+                    granted === null ? <Link className={`${styles.button} ${router.pathname === "/login" ? styles.active : ""}`} href="/login" onClick={()=>{setSelected(2)}}>{t('login')}</Link>
+                    : <Link className={`${styles.button} ${router.pathname === "/account" ? styles.active : ""}`} href="/account" onClick={()=>{setSelected(2);}}>{t('account')}</Link>
                 }
                 {
-                granted === null ? <NavLink className={`${styles.button} ${selected === 3 && styles.active}`} to="/subscription" onClick={()=>{setSelected(3)}}>{t('subscribe')}</NavLink>
-                : <NavLink className={`${styles.button} ${selected === 3 && styles.active}`} to="/" onClick={()=>{disconnect()}}>{t('disconnect')}</NavLink>
+                granted === null ? <Link className={`${styles.button} ${router.pathname === "/subscription" ? styles.active : ""}`} href="/subscription" onClick={()=>{setSelected(3)}}>{t('subscribe')}</Link>
+                : <Link className={styles.button} href="/" onClick={()=>{disconnect()}}>{t('disconnect')}</Link>
                 }
                 </nav> :
                 <>
                     <nav className={styles.nav}>
-                    <NavLink to='/' onClick={()=>{setSelected(1)}}>
+                    <Link href='/' onClick={()=>{setSelected(1)}}>
                         <img className={(isSmartPhoneMax600 && isSmartPhoneMin300)  === false ? styles.image : styles.imageadapt} src="\sakura.png" alt="sakura"/>
-                    </NavLink>
-                    <NavLink className={`${(isSmartPhoneMax600 && isSmartPhoneMin300)  === false ? styles.button : styles.buttonadapt} ${selected === 1 && styles.active}`} to="/" onClick={()=>{setSelected(1)}}>{t('home')}</NavLink>
+                    </Link>
+                    <Link className={`${(isSmartPhoneMax600 && isSmartPhoneMin300)  === false ? styles.button : styles.buttonadapt} ${router.pathname === "/" ? styles.active : ""}`} href="/" onClick={()=>{setSelected(1)}}>{t('home')}</Link>
                     {
-                        granted === null ? <NavLink className={`${(isSmartPhoneMax600 && isSmartPhoneMin300)  === false ? styles.button : styles.buttonadapt} ${selected === 2 && styles.active}`} to="/login" onClick={()=>{setSelected(2)}}>{t('login')}</NavLink>
-                        : <NavLink className={`${(isSmartPhoneMax600 && isSmartPhoneMin300)  === false ? styles.button : styles.buttonadapt} ${selected === 2 && styles.active}`} to="/account" onClick={()=>{setSelected(2)}}>{t('account')}</NavLink>
+                        granted === null ? <Link className={`${(isSmartPhoneMax600 && isSmartPhoneMin300)  === false ? styles.button : styles.buttonadapt} ${router.pathname === "/login" ? styles.active : ""}`} href="/login" onClick={()=>{setSelected(2)}}>{t('login')}</Link>
+                        : <Link className={`${(isSmartPhoneMax600 && isSmartPhoneMin300)  === false ? styles.button : styles.buttonadapt} ${router.pathname === "/account" ? styles.active : ""}`} href="/account" onClick={()=>{setSelected(2)}}>{t('account')}</Link>
                     }
                     {
-                    granted === null ? <NavLink className={`${(isSmartPhoneMax600 && isSmartPhoneMin300)  === false ? styles.button : styles.buttonadapt} ${selected === 3 && styles.active}`} to="/subscription" onClick={()=>{setSelected(3)}}>{t('subscribe')}</NavLink>
-                    : <NavLink className={`${(isSmartPhoneMax600 && isSmartPhoneMin300)  === false ? styles.button : styles.buttonadapt} ${selected === 3 && styles.active}`} to="/" onClick={()=>{disconnect()}}>{t('disconnect')}</NavLink>
+                    granted === null ? <Link className={`${(isSmartPhoneMax600 && isSmartPhoneMin300)  === false ? styles.button : styles.buttonadapt} ${router.pathname === "/subscription" ? styles.active : ""}`} href="/subscription" onClick={()=>{setSelected(3)}}>{t('subscribe')}</Link>
+                    : <Link className={`${(isSmartPhoneMax600 && isSmartPhoneMin300)  === false ? styles.button : styles.buttonadapt}`} href="/" onClick={()=>{disconnect()}}>{t('disconnect')}</Link>
                     }
                     </nav>
                     <SearchBar/>

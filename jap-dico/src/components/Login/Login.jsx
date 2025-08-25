@@ -2,7 +2,7 @@ import axios from "axios";
 import React, {useContext,useState} from "react";
 import styles from "./Login.module.css"
 import { UserContext } from "../Context/Context";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/router";
 import { useMediaQuery } from 'react-responsive'
 import { Formik, Form, Field} from 'formik';
 import Error from '../Error/Error'
@@ -13,7 +13,7 @@ import RequestPassWord from "../RequestPassWord/RequestPassWord";
 export default function Login(){
     const { t } = useTranslation();
     const {word, setGranted, comToLogin, setComToLogin, setSelected} = useContext(UserContext)
-    const navigation = useNavigate();
+    const router = useRouter();
     const [pass,setPass] = useState(false)
     const [show,setShow] = useState(false)
     const loginSchema = yup.object({
@@ -34,7 +34,12 @@ export default function Login(){
             setGranted(response.data.token);
             localStorage.setItem("token",response.data.token)
             setSelected(1)
-            comToLogin === false ? navigation('/') : setComToLogin(false); navigation(`/search/${word}`)
+            if (comToLogin === false) {
+                router.push('/');
+            } else {
+                setComToLogin(false);
+                router.push(`/search/${word}`);
+            }
             setPass(false)
         }
         else{
@@ -78,7 +83,7 @@ export default function Login(){
                                 <Error touched={pass} errors={"email ou mot de passe incorrect !"}/>
                                 <div className={isSmartPhone === false ? styles.groupButton : styles.groupButtonAdapt}>
                                     <input type="submit" value={t('login')} className={styles.button}/>
-                                    <input type="button" value={t('return')} className={styles.button} onClick={()=>{setSelected(1); navigation('/')}}/>
+                                    <input type="button" value={t('return')} className={styles.button} onClick={()=>{setSelected(1); router.push('/')}}/>
                                 </div>
                             </Form> 
                         )}

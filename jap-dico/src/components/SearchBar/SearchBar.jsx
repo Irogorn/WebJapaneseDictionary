@@ -1,6 +1,6 @@
 import React, {useContext} from "react";
 import styles from "./SearchBar.module.css"
-import {useNavigate} from "react-router-dom";
+import { useRouter } from "next/router";
 import { UserContext } from "../Context/Context";
 import { useMediaQuery } from 'react-responsive'
 import { useTranslation } from "react-i18next";
@@ -12,7 +12,7 @@ export default function SearchBar(){
     const { t } = useTranslation();
     const {word,setWord} = useContext(UserContext);
     const {go,setGo, setSelected} = useContext(UserContext);
-    const navigation= useNavigate();
+    const router = useRouter();
 
     const isSmartPhoneMax600 = useMediaQuery({ query: '(max-width: 700px)' })
     const isSmartPhoneMin300 = useMediaQuery({ query: '(min-width: 360px)' }) 
@@ -22,7 +22,7 @@ export default function SearchBar(){
         event.preventDefault();
         setSelected(1);
 
-        navigation(`/search/${word}`);
+        router.push(`/search/${word}`);
         if(go === false)
         {
             setGo(true);

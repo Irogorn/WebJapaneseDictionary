@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import styles from "./Definitions.module.css";
 import axios from "axios";
 import { UserContext } from "../Context/Context";
-import { useParams } from "react-router-dom";
+import { useRouter } from "next/router";
 import CardDetail from "../CardDetail/CardDetail";
 import CardKanji from "../CardKanji/CardKanji";
 import Commentaries from "../Commentaries/Commentaries";
@@ -12,7 +12,8 @@ import { useTranslation } from "react-i18next";
 export default function Definitions() {
     const { setWord } = useContext(UserContext);
     const { go } = useContext(UserContext);
-    const { words } = useParams();
+    const router = useRouter();
+    const { words } = router.query;
     const [definitions, setDefinitions] = useState([]);
     const [kanjis, setKanjis] = useState([]);
     const { t } = useTranslation();
@@ -20,6 +21,7 @@ export default function Definitions() {
     const isSmartPhone = useMediaQuery({ query: "(max-width: 700px)" });
 
     useEffect(() => {
+        if (!words) return;
         let patch = words.replaceAll("%%","%25%")
         setWord(decodeURIComponent(patch));
 

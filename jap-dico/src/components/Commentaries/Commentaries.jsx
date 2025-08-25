@@ -2,7 +2,7 @@ import styles from './Commentaries.module.css'
 import React, {useContext, useEffect, useState} from "react";
 import axios from "axios";
 import { UserContext } from "../Context/Context";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/router";
 import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAnglesDown } from '@fortawesome/free-solid-svg-icons';
@@ -14,7 +14,7 @@ import {faXmark} from '@fortawesome/free-solid-svg-icons';
 import { useMediaQuery } from 'react-responsive'
 
 export default function Commentaries(props) {
-    const navigation = useNavigate()
+    const router = useRouter()
     const [commentaries, setCommentaries] = useState([])
     const [text, setText] = useState("");
     const [isSent, setIsSent] = useState(false);
@@ -36,7 +36,7 @@ export default function Commentaries(props) {
 
     const login = ()=>{
         setComToLogin(true)
-        navigation("/login")
+        router.push("/login")
     }
 
     const dayMonth = (date) => {

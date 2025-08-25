@@ -2,20 +2,19 @@ import React, {useState,useEffect,useContext} from 'react'
 import { Formik, Form, Field} from 'formik';
 import * as yup from 'yup';
 import Error from '../Error/Error';
-import {useParams} from "react-router-dom";
+import { useRouter } from "next/router";
 import { useTranslation } from "react-i18next";
 import styles from './AlterPassWord.module.css';
 import { useMediaQuery } from 'react-responsive'
 import axios from "axios";
 import { UserContext } from "../Context/Context";
-import { useNavigate } from "react-router-dom";
 
 export default function AlterPassWord() {
-    const {token} = useParams();
+    const router = useRouter();
+    const { token } = router.query;
     const [user,setUser] = useState({});
     const { t } = useTranslation();
     const {setSelected} = useContext(UserContext)
-    const navigation = useNavigate();
 
 
     useEffect(
@@ -41,7 +40,7 @@ export default function AlterPassWord() {
     const handleSubmit = (values) => {
             const u = { ...user,passWord: values.password}
             axios.patch(`/updateAlterPassWord`,u).then((response)=> {}).catch((error) => console.log(error));
-            navigation('/login')
+            router.push('/login')
             setSelected(2)
     }
 

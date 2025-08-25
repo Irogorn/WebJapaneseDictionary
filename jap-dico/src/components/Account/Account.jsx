@@ -5,7 +5,7 @@ import axios from "axios";
 import styles from "./Account.module.css"
 import { UserContext } from "../Context/Context";
 import Error from '../Error/Error'
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/router";
 import {isExpired } from "react-jwt";
 import { useMediaQuery } from 'react-responsive'
 import { useTranslation } from "react-i18next";
@@ -16,7 +16,7 @@ const Account = () => {
     //const { t, i18n } = useTranslation();
     const {t} = useTranslation();
     const {setGranted, granted,setSelected} = useContext(UserContext)
-    const navigation = useNavigate();
+    const router = useRouter();
     const toclose = isExpired(localStorage.getItem("token"));
     setSelected(2);
     const isSmartPhone = useMediaQuery({ query: '(max-width: 500px)' })
@@ -88,7 +88,7 @@ const Account = () => {
         }).then((response)=> {}).catch((error) => console.log(error));
         localStorage.removeItem("token"); 
         setGranted(null);
-        navigation('/login')
+        router.push('/login')
         setSelected(2)
     }
 
@@ -96,12 +96,12 @@ const Account = () => {
         ()=>{
             if(toclose || granted === null)
             {
-                navigation('/login')
+                router.push('/login')
                 localStorage.removeItem('token')
                 setGranted(null)
             } 
         return ()=>{}},
-        [toclose,navigation,setGranted,granted]);   
+        [toclose,router,setGranted,granted]);
 
     return (
         <>

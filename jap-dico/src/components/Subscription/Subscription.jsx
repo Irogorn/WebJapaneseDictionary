@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, {useContext, useState, useEffect} from "react";
 import styles from "./Subscription.module.css"
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/router";
 import { Formik, Form, Field} from 'formik';
 import * as yup from 'yup';
 import { UserContext } from "../Context/Context";
@@ -11,7 +11,7 @@ import { useTranslation } from "react-i18next";
 import { readable } from "../../tools/tools";
 
 export default function Subscription(){
-    const navigation = useNavigate();
+    const router = useRouter();
     const {setSelected} = useContext(UserContext)
     const { t } = useTranslation();
     const [EmList,setemList] = useState([])
@@ -60,7 +60,7 @@ export default function Subscription(){
                 passWord: values.password
             }
             axios.post(`/subscribe`,user).then((response)=> {}).catch((error) => console.log(error));
-            navigation('/login')
+            router.push('/login')
             setSelected(2)
     }
 
@@ -93,7 +93,7 @@ export default function Subscription(){
                                 </div>
                                 <div className={styles.groupButton}>
                                     <input type="submit" value={t('validate')} className={styles.button}/>
-                                    <input type="button" value={t('cancel')} className={styles.button} onClick={()=>{setSelected(1); navigation('/')}}/>
+                                    <input type="button" value={t('cancel')} className={styles.button} onClick={()=>{setSelected(1); router.push('/')}}/>
                                 </div>
                             </Form>  )}
             </Formik> 
