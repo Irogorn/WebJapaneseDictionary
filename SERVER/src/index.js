@@ -2,6 +2,8 @@ import Fastify from 'fastify';
 import fp from 'fastify-plugin';
 import {config} from 'dotenv'
 import swagger from './lib/swagger.js';
+import helmet from '@fastify/helmet';
+import sensible from '@fastify/sensible';
 import cors from './lib/cors.js';
 import Sequelize from './lib/sequelize.js';
 import mailer from './lib/sender.js';
@@ -23,6 +25,8 @@ async function main() {
     });
 
     app.register(fp(cors));
+    app.register(fp(helmet));
+    app.register(fp(sensible));
     app.register(fp(swagger));
     app.register(fp(Sequelize));
   //  app.register(fp(guard));

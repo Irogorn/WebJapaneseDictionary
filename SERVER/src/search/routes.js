@@ -1,4 +1,5 @@
 import { listKanjis, listSearch } from "./schemas.js";
+import sanitize from "sanitize-html";
 
 /**
  * Plugin contenant les routes pour les utilisateurs
@@ -19,10 +20,15 @@ export default async function lookUpRoutes(app) {
             word: {
               type: "string",
               description: "lookedup word",
+              maxLength: 100,
             },
           },
           required: ["word"],
         },
+      },
+      preHandler: (request, reply, done) => {
+        request.params.word = sanitize(request.params.word);
+        done();
       },
     },
     async (request, reply) => {

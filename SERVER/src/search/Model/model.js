@@ -10,7 +10,6 @@ import {
 async function uniqueSearch(BaseModel, lookedup, word) {
     let askedDefinition = [];
     const setkanji = new Set();
-    console.log(`Word: ${word}`);
     lookedup = await BaseModel.listPointer["words"].findAll({
         include: [
             { model: BaseModel.WordsFR, where: { french: word } },
@@ -132,13 +131,9 @@ export default class LookUpModel extends BaseModel {
                 splitSentencesToWords(word, Datum, typeOfWords)
             );
 
-            //console.log("--------------------------------------");
-             console.log(setword);
             for (let token of setword) {
                 const reply = await uniqueSearch(this, lookedup, token);
-                console.log(`Reply: ${reply.found}`);
                 if (reply.found) {
-                   // askedDefinition.push(reply.askedDefinition);
                     reply.askedDefinition.forEach(elem => askedDefinition.push(elem));
                     reply.setkanji.forEach(elem => setkanji.add(elem));
                 } else {
@@ -265,7 +260,6 @@ export default class LookUpModel extends BaseModel {
                             where: obj,
                         });
                         // console.log(lookedup);
-                        // console.log("level 5");
                         if (lookedup.length === 0 && obj.jp_romaji) {
                             let w = obj.jp_romaji;
                             lookedup = await this.listPointer["words"].findAll({
@@ -277,12 +271,9 @@ export default class LookUpModel extends BaseModel {
                                     { model: this.Commentary },
                                 ],
                             });
-                            // console.log("level 6");
                         }
                     }
-                    //console.log(lookedup);
                     for (let word of lookedup) {
-                        //   console.log(word);
                         let tmp = {};
                         tmp = { ...tmp, word };
 
@@ -336,7 +327,6 @@ export default class LookUpModel extends BaseModel {
                                 tmp = { ...tmp, tenseAdjs };
                             }
                         }
-                        // console.log(tmp);
                         askedDefinition.push(tmp);
 
                         for (let k of word.jp_kanji) {
