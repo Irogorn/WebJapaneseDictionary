@@ -6,8 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import {faXmark} from '@fortawesome/free-solid-svg-icons';
 
-export default function SearchBar(){
-    const [word,setWord] = useState('');
+export default function SearchBar({ word, setWord }){
     const router = useRouter();
 
     const handleSubmit = (event) =>
