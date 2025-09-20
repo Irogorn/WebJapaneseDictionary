@@ -14,7 +14,7 @@ export default function NavBar(){
                 <Link href='/'>
                     <Image className={styles.image} src="/sakura.png" alt="sakura" width={37} height={37}/>
                 </Link>
-                <Link className={`${styles.button}`} href="/">Home</Link>
+                <Link className={`${styles.button} ${styles.homeLink}`} href="/">Home</Link>
                 <SearchBar/>
             </nav>
         </>

@@ -68,3 +68,9 @@
     padding: 6px 8px;
     object-fit: fill;
 }
+
+@media (max-width: 768px) {
+    .homeLink {
+        display: none;
+    }
+}
