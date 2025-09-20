@@ -56,10 +56,3 @@
 .meaning {
     font-weight: bold;
 }
-
-@media (max-width: 768px) {
-    .group_three {
-        display: flex;
-        flex-direction: column-reverse;
-    }
-}
