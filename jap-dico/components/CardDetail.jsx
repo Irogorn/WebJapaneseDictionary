@@ -9,9 +9,11 @@ import {
     listDetail,
     giveMeRoot,
 } from "../tools/tools";
+import {useTranslations} from 'next-intl';
 
 export default function CardDetail(props) {
     const [show, setShow] = useState(false);
+    const t = useTranslations('CardDetail');
 
     const handleForm = () => {
         setShow(true);
@@ -32,7 +34,7 @@ export default function CardDetail(props) {
                                     className={styles.explication}
                                 >
                                     <span className={styles.text}>
-                                        information supplémentaire :
+                                        {t('extraInfo')}
                                     </span>{" "}
                                     {obj.fr_explication}
                                 </div>
@@ -87,7 +89,7 @@ export default function CardDetail(props) {
                     <div className={styles.types}>{props.def.type}</div>
                     {((props.verb !== undefined && props.verb !== null) || (props.adj !== undefined && props.adj !== null)) && (
                         <button className={styles.form} onClick={handleForm}>
-                            Conjugation
+                            {t('conjugation')}
                         </button>
                     )}
                     {show && (

@@ -1,0 +1,24 @@
+{
+    "Welcome": {
+        "title": "Welcome to the Japanese dictionary!",
+        "subtitle": "The features are as follows:",
+        "feature1": "Search from a French word;",
+        "feature2": "Search from a Japanese word written in romaji, hiragana, katakana and/or kanji;",
+        "feature3": "Search from a Japanese text (the text must not be entirely written in romaji);",
+        "feature4": "For verbs and adjectives, conjugations are available;",
+        "feature5": "Each kanji has detailed information;",
+        "feature6": "For each definition of Japanese words, there is a concrete example."
+    },
+    "NavBar": {
+        "home": "Home"
+    },
+    "CardDetail": {
+        "extraInfo": "additional information:",
+        "conjugation": "Conjugation"
+    },
+    "CardKanji": {
+        "strokes": "strokes",
+        "kunReading": "Kun reading:",
+        "onReading": "On reading:"
+    }
+}

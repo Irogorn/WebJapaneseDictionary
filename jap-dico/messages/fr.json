@@ -1,0 +1,24 @@
+{
+    "Welcome": {
+        "title": "Bienvenue sur le dictionnaire de japonais !",
+        "subtitle": "Les fonctionnalités sont les suivants :",
+        "feature1": "Recherche à partir d’un mot en français;",
+        "feature2": "Recherche à partir d’un mot en japonais écrit en romaji, hiragana, katakana et/ou kanji;",
+        "feature3": "Recherche à partir d’un texte japonais (le texte ne doit pas être entièrement écrit en romaji);",
+        "feature4": "Pour les verbes et adjectifs les conjugaisons sont disponibles;",
+        "feature5": "Chaque kanji a des informations détaillés;",
+        "feature6": "Pour chaque défintion des mots japonais, il y a un exemple concret."
+    },
+    "NavBar": {
+        "home": "Accueil"
+    },
+    "CardDetail": {
+        "extraInfo": "information supplémentaire :",
+        "conjugation": "Conjugaison"
+    },
+    "CardKanji": {
+        "strokes": "traits",
+        "kunReading": "Lecture Kun :",
+        "onReading": "Lecture On :"
+    }
+}
