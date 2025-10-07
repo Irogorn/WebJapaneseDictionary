@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Definitions.module.css";
-import CardDetail from "../../../components/CardDetail.jsx";
-import CardKanji from "../../../components/CardKanji.jsx";
+import CardDetail from "../../../../components/CardDetail.jsx";
+import CardKanji from "../../../../components/CardKanji.jsx";
 
 export async function generateMetadata({ params }) {
     const { words } = params;
