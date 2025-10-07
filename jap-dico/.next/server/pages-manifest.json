@@ -2,5 +2,10 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/404": "pages/404.html"
+  "/Account": "pages/Account.js",
+  "/login": "pages/login.js",
+  "/": "pages/index.js",
+  "/resquet_new_password/[token]": "pages/resquet_new_password/[token].js",
+  "/search/[words]": "pages/search/[words].js",
+  "/subscription": "pages/subscription.js"
 }

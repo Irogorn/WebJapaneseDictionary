@@ -6,6 +6,7 @@ import styles from "./NavBar.module.css"
 import { UserContext } from "../Context/Context";
 import { useMediaQuery } from 'react-responsive'
 import { useTranslation } from "react-i18next";
+import LanguageSwitcher from '../LanguageSwitcher';
 
 export default function NavBar(){
     const { t } = useTranslation();
@@ -41,6 +42,7 @@ export default function NavBar(){
                 granted === null ? <Link className={`${styles.button} ${router.pathname === "/subscription" ? styles.active : ""}`} href="/subscription" onClick={()=>{setSelected(3)}}>{t('subscribe')}</Link>
                 : <Link className={styles.button} href="/" onClick={()=>{disconnect()}}>{t('disconnect')}</Link>
                 }
+                <LanguageSwitcher />
                 </nav> :
                 <>
                     <nav className={styles.nav}>
@@ -56,6 +58,7 @@ export default function NavBar(){
                     granted === null ? <Link className={`${(isSmartPhoneMax600 && isSmartPhoneMin300)  === false ? styles.button : styles.buttonadapt} ${router.pathname === "/subscription" ? styles.active : ""}`} href="/subscription" onClick={()=>{setSelected(3)}}>{t('subscribe')}</Link>
                     : <Link className={`${(isSmartPhoneMax600 && isSmartPhoneMin300)  === false ? styles.button : styles.buttonadapt}`} href="/" onClick={()=>{disconnect()}}>{t('disconnect')}</Link>
                     }
+                    <LanguageSwitcher />
                     </nav>
                     <SearchBar/>
                 </>

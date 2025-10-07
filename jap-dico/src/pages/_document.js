@@ -14,7 +14,6 @@ export default function Document() {
         />
         <link rel="apple-touch-icon" href="/logo192.png" />
         <link rel="manifest" href="/manifest.json" />
-        <title>Dictionnaire de japonais</title>
       </Head>
       <body>
         <Main />

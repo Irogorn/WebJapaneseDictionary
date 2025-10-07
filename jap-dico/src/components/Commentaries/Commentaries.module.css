@@ -9,12 +9,6 @@
     flex-direction: column;
 }
 
-h5 {
-    margin-top: 5px;
-    margin-bottom: 5px;
-    margin-left: 5px;
-    width:fit-content
-}
 
 .commentary {
     width: 90%;
@@ -106,11 +100,6 @@ h5 {
     background-color: transparent;
 }
 
-section{
-    display:flex;
-    justify-content: space-between;
-    background-color: whitesmoke;
-}
 
 .expand {
     border-bottom: 2px solid black;
